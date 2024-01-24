@@ -15,7 +15,7 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
       },
     })
     .toPromise();
-
+   console.log(page)
   // Verify the user is previewing or editing in Builder
   const isPreviewing = new URL(request.url).searchParams.has("builder.preview");
 
@@ -25,7 +25,7 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
     throw new Response("Page Not Found", {
       status: 404,
       statusText:
-        "We couldn't find this page, please check your url path and if the page is published on Builder.io.",
+        `We couldn't find this page, please check your url path and if the page is published on Builder.io. Got Page: ${page}`,
     });
   }
 
