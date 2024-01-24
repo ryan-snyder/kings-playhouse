@@ -15,7 +15,13 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
       },
     })
     .toPromise();
-   console.log(page)
+   const header = await builder
+    .get('header', {
+      userAttributes: {
+        urlPath: '/' + params['*'],
+      },
+    })
+    .toPromise();
   // Verify the user is previewing or editing in Builder
   const isPreviewing = new URL(request.url).searchParams.has("builder.preview");
 
@@ -29,14 +35,19 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
     });
   }
 
-  return { page };
+  return { page, header};
 };
 
 // Define and render the page.
 export default function Page() {
   // Use the useLoaderData hook to get the Page data from `loader` above.
-  const { page } = useLoaderData<typeof loader>();
+  const { page, header} = useLoaderData<typeof loader>();
 
   // Render the page content from Builder.io
-  return <BuilderComponent model="page" content={page} />;
+  return (
+        <div>
+            <BuilderComponent model = "header" content={header} />
+            <BuilderComponent model="page" content={page} />
+        </div>
+  );
 }
