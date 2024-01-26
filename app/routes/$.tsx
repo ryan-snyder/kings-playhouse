@@ -19,7 +19,7 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
     .get('header', {
       userAttributes: {
         urlPath: '/' + params['*'],
-      },
+      }
     })
     .toPromise();
   // Verify the user is previewing or editing in Builder
