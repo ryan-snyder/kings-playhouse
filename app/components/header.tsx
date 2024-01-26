@@ -12,10 +12,10 @@ interface Link {
 }
 export default function header({ links, image} : {links: [key: Link], image: string}) {
     return (
-        <Navbar isBordered className='bg-green-500'>
+        <Navbar isBordered>
         <NavbarBrand>
             <Image
-              width={300}
+              width={200}
               height={200}
               alt="Kings Playhouse Logo"
               src={image}
