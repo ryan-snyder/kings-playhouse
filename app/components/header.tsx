@@ -15,14 +15,14 @@ interface Size {
     width: number,
     height: number
 }
-export default function header({ links, image, image_size} : {links: [key: Link], image: string, image_size: Size}) {
+export default function header({ links, image, size} : {links: [key: Link], image: string, size: Size}) {
     return (
         <Navbar isBordered className='dark text-foreground bg-background'>
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 <NavbarBrand>
                     <Image
-                    width={image_size.width}
-                    height={image_size.height}
+                    width={size.width}
+                    height={size.height}
                     alt="Kings Playhouse Logo"
                     src={image}
                     />

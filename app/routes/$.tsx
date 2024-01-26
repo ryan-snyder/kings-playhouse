@@ -24,7 +24,6 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
     .toPromise();
   // Verify the user is previewing or editing in Builder
   const isPreviewing = new URL(request.url).searchParams.has("builder.preview");
-  console.log(header)
   // If the page is not found and the user is not previewing, throw a 404.
   // The CatchBoundary component will catch the error
   if (!page && !isPreviewing) {

@@ -40,7 +40,7 @@ Builder.registerComponent(header, {
       required: true,
     },
     {
-      name: 'image-size',
+      name: 'size',
       type: 'object',
       subFields: [
         {
