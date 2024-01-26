@@ -1,6 +1,7 @@
 import { BuilderComponent, builder } from "@builder.io/react";
 import type { LoaderFunctionArgs } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
+import { Header } from '../components/header';
 
 // Initialize the Builder client and pass in your Public API Key
 builder.init('18d705a1954e4170b937d51ac7788541'); // <-- add your Public API Key here
@@ -46,7 +47,7 @@ export default function Page() {
   // Render the page content from Builder.io
   return (
         <div>
-            <BuilderComponent model = "header" content={header} />
+            <Header/>
             <BuilderComponent model="page" content={page} />
         </div>
   );
