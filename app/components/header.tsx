@@ -1,5 +1,3 @@
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, Image} from "@nextui-org/react";
-import { commonColors } from "@nextui-org/react";
 import { builder } from '@builder.io/react';
 import type { BuilderContent } from '@builder.io/sdk';
 import { useLoaderData } from '@remix-run/react';
@@ -15,7 +13,12 @@ interface Size {
     width: number,
     height: number
 }
-
+/**
+ * Example header with next-ui
+ * 
+ * Might not be needed with mantine
+ *  
+ 
 export function Header() {
     const links = [
             {
@@ -60,6 +63,7 @@ export function Header() {
         </Navbar>
     );
 }
+
 export default function NavHeader({ links, image, size} : {links: [key: Link], image: string, size: Size}) {
     return (
         <Navbar isBordered className='dark text-foreground bg-background'>
@@ -78,3 +82,4 @@ export default function NavHeader({ links, image, size} : {links: [key: Link], i
         </Navbar>
     );
 }
+*/

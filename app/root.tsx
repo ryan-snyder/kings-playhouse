@@ -1,4 +1,9 @@
+// Import styles of packages that you've installed.
+// All packages except `@mantine/hooks` require styles imports
+import '@mantine/core/styles.css';
+
 import type { LinksFunction } from "@remix-run/cloudflare";
+import { cssBundleHref } from '@remix-run/css-bundle';
 import {
   Links,
   LiveReload,
@@ -7,11 +12,12 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import styles from "./tailwind.css"
-import { NextUIProvider } from "@nextui-org/react";
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 
 export const links: LinksFunction = () => [
-  ({ rel: "stylesheet", href: styles }),
+  ...(cssBundleHref
+    ? [{ rel: 'stylesheet', href: cssBundleHref }]
+    : []),
 ];
 
 export default function App() {
@@ -22,14 +28,15 @@ export default function App() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        <ColorSchemeScript />
       </head>
       <body>
-        <NextUIProvider>
-          <Outlet />
-          <ScrollRestoration />
-          <Scripts />
-          <LiveReload />
-        </NextUIProvider>
+          <MantineProvider>
+            <Outlet />
+            <ScrollRestoration />
+            <Scripts />
+            <LiveReload />
+          </MantineProvider>
       </body>
     </html>
   );

@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "@builder.io/react": "^3.2.0",
-    "@nextui-org/react": "^2.2.9",
+    "@mantine/core": "^7.5.0",
+    "@mantine/hooks": "^7.5.0",
+    "@mantinex/mantine-logo": "^1.0.1",
     "@remix-run/cloudflare": "^2.5.1",
     "@remix-run/cloudflare-pages": "^2.5.1",
     "@remix-run/css-bundle": "^2.5.1",
@@ -35,7 +37,9 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.33",
+    "postcss-preset-mantine": "^1.12.3",
+    "postcss-simple-vars": "^7.0.1",
     "typescript": "^5.1.0",
     "wrangler": "3.8.0"
   },
