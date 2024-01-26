@@ -39,6 +39,24 @@ Builder.registerComponent(header, {
       allowedFileTypes: ['jpeg', 'jpg', 'png', 'svg'],
       required: true,
     },
+    {
+      name: 'image-size',
+      type: 'object',
+      subFields: [
+        {
+          name: 'width',
+          type: 'number',
+          defaultValue: 300,
+          required: true
+        },
+        {
+          name: 'height',
+          type: 'number',
+          defaultValue: 200,
+          required: true
+        },
+      ]
+    }
   ]
 })
 startTransition(() => {

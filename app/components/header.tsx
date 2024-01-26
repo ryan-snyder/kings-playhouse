@@ -10,14 +10,19 @@ interface Link {
     url: string,
     label: string
 }
-export default function header({ links, image} : {links: [key: Link], image: string}) {
+
+interface Size {
+    width: number,
+    height: number
+}
+export default function header({ links, image, image_size} : {links: [key: Link], image: string, image_size: Size}) {
     return (
         <Navbar isBordered className='dark text-foreground bg-background'>
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 <NavbarBrand>
                     <Image
-                    width={300}
-                    height={200}
+                    width={image_size.width}
+                    height={image_size.height}
                     alt="Kings Playhouse Logo"
                     src={image}
                     />
