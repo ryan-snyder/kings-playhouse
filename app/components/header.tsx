@@ -9,7 +9,9 @@ import { useEffect } from "react";
 export default function header({ links, image} : {links : BuilderContent[], image: string}) {
 
     useEffect(() => {
-        console.log(`Got links: ${links[0]}`)
+        console.log(links)
+        console.log(links[0])
+        console.log(links[0].data)
         console.log(`Got image: ${image}`)
     })
     return (
