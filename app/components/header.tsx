@@ -6,10 +6,10 @@ import type { LoaderFunction } from '@remix-run/node';
 import { useEffect } from "react";
 
 
-export default function header({ links, image} : {links : BuilderContent[], image: BuilderContent}) {
+export default function header({ links, image} : {links : BuilderContent[], image: string}) {
 
     useEffect(() => {
-        console.log(`Got links: ${links}`)
+        console.log(`Got links: ${links[0]}`)
         console.log(`Got image: ${image}`)
     })
     return (
@@ -19,7 +19,7 @@ export default function header({ links, image} : {links : BuilderContent[], imag
               width={300}
               height={200}
               alt="Kings Playhouse Logo"
-              src={image.data?.src}
+              src={image}
             />
             <p className="font-bold text-inherit">Kings Playhouse</p>
         </NavbarBrand>
