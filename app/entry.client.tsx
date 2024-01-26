@@ -7,7 +7,40 @@
 import { RemixBrowser } from "@remix-run/react";
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
+import { builder, Builder } from "@builder.io/react";
+import header from "./components/header";
 
+builder.init('18d705a1954e4170b937d51ac7788541'); // <-- add your Public API Key here
+
+Builder.registerComponent(header, {
+  name: 'Header',
+  inputs: [
+    {
+      name: 'links', 
+      type: 'list',
+      subFields: [
+              {
+                name: 'url',
+                type: 'string',
+                defaultValue: '/home',
+                required: true
+              },
+              {
+                name: 'label',
+                type: 'string',
+                defaultValue: 'Home',
+                required: true
+              }
+            ],
+    },
+    {
+      name: 'image',
+      type: 'file',
+      allowedFileTypes: ['jpeg', 'jpg', 'png', 'svg'],
+      required: true,
+    },
+  ]
+})
 startTransition(() => {
   hydrateRoot(
     document,
