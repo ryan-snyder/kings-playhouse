@@ -13,15 +13,15 @@ interface Link {
 export default function header({ links, image} : {links: [key: Link], image: string}) {
     return (
         <Navbar isBordered className='dark text-foreground bg-background'>
-            <NavbarBrand>
-                <Image
-                width={300}
-                height={200}
-                alt="Kings Playhouse Logo"
-                src={image}
-                />
-            </NavbarBrand>
-            <NavbarContent className="hidden sm:flex gap-4" justify="end">
+            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+                <NavbarBrand>
+                    <Image
+                    width={300}
+                    height={200}
+                    alt="Kings Playhouse Logo"
+                    src={image}
+                    />
+                </NavbarBrand>
                 {links.map((link, index) => (
                     <NavbarItem>
                         <Link key={index} color="foreground" href={link.url}>
