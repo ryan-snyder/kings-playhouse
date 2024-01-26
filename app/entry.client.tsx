@@ -39,6 +39,11 @@ Builder.registerComponent(header, {
       allowedFileTypes: ['jpeg', 'jpg', 'png', 'svg'],
       required: true,
     },
+    {
+      name: 'background color',
+      type: 'color',
+      defaultValue: '#003b46'
+    }
   ]
 })
 startTransition(() => {

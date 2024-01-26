@@ -10,26 +10,26 @@ interface Link {
     url: string,
     label: string
 }
-export default function header({ links, image} : {links: [key: Link], image: string}) {
+export default function header({ links, image, color} : {links: [key: Link], image: string, color: string}) {
     return (
-        <Navbar isBordered>
-        <NavbarBrand>
-            <Image
-              width={200}
-              height={200}
-              alt="Kings Playhouse Logo"
-              src={image}
-            />
-        </NavbarBrand>
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
-            {links.map((link, index) => (
-                <NavbarItem>
-                    <Link key={index} color="foreground" href={link.url}>
-                        {link.label}
-                    </Link>
-                </NavbarItem>
-            ))}
-        </NavbarContent>
+        <Navbar isBordered className={`bg-${color}`}>
+            <NavbarBrand>
+                <Image
+                width={36}
+                height={36}
+                alt="Kings Playhouse Logo"
+                src={image}
+                />
+            </NavbarBrand>
+            <NavbarContent className="hidden sm:flex gap-4" justify="center">
+                {links.map((link, index) => (
+                    <NavbarItem>
+                        <Link key={index} color="foreground" href={link.url}>
+                            {link.label}
+                        </Link>
+                    </NavbarItem>
+                ))}
+            </NavbarContent>
         </Navbar>
     );
 }
