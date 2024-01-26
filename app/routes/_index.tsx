@@ -11,11 +11,11 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="dark text-foreground bg-background" style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <Navbar>
+      <Navbar isBordered>
         <NavbarBrand>
           <p className="font-bold text-inherit">ACME</p>
         </NavbarBrand>
-        <NavbarContent className="hidden sm:flex gap-4" justify="center">
+        <NavbarContent className="hidden sm:flex gap-4" justify="end">
           <NavbarItem>
             <Link color="foreground" href="#">
               Features
