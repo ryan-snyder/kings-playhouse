@@ -8,10 +8,11 @@ import { RemixBrowser } from "@remix-run/react";
 import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
 import { builder, Builder } from "@builder.io/react";
-import header from "./components/header";
 
 builder.init('18d705a1954e4170b937d51ac7788541'); // <-- add your Public API Key here
-
+/**
+ * Example header connected with builder.io
+ * Might not be needed
 Builder.registerComponent(header, {
   name: 'Header',
   inputs: [
@@ -59,6 +60,7 @@ Builder.registerComponent(header, {
     }
   ]
 })
+*/
 startTransition(() => {
   hydrateRoot(
     document,

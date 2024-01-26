@@ -4,7 +4,6 @@
  * For more information, see https://remix.run/file-conventions/entry.server
  */
 
-import { NextUIProvider } from "@nextui-org/react";
 import type { AppLoadContext, EntryContext } from "@remix-run/cloudflare";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
@@ -21,9 +20,7 @@ export default async function handleRequest(
   loadContext: AppLoadContext
 ) {
   const body = await renderToReadableStream(
-    <NextUIProvider>
-      <RemixServer context={remixContext} url={request.url} />
-    </NextUIProvider>,
+      <RemixServer context={remixContext} url={request.url} />,
     {
       signal: request.signal,
       onError(error: unknown) {

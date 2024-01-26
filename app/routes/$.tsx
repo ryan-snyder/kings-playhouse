@@ -1,7 +1,6 @@
 import { BuilderComponent, builder } from "@builder.io/react";
 import type { LoaderFunctionArgs } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
-import { Header } from '../components/header';
 
 // Initialize the Builder client and pass in your Public API Key
 builder.init('18d705a1954e4170b937d51ac7788541'); // <-- add your Public API Key here
@@ -42,12 +41,11 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
 // Define and render the page.
 export default function Page() {
   // Use the useLoaderData hook to get the Page data from `loader` above.
-  const { page, header} = useLoaderData<typeof loader>();
+  const { page } = useLoaderData<typeof loader>();
 
   // Render the page content from Builder.io
   return (
         <div>
-            <Header/>
             <BuilderComponent model="page" content={page} />
         </div>
   );
