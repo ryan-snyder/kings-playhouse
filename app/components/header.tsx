@@ -5,15 +5,11 @@ import { useLoaderData } from '@remix-run/react';
 import type { LoaderFunction } from '@remix-run/node';
 import { useEffect } from "react";
 
-
-export default function header({ links, image} : {links : BuilderContent[], image: string}) {
-
-    useEffect(() => {
-        console.log(links)
-        console.log(links[0])
-        console.log(links[0].data)
-        console.log(`Got image: ${image}`)
-    })
+interface Link {
+    url: string,
+    label: string
+}
+export default function header({ links, image} : {links: [key: Link], image: string}) {
     return (
         <Navbar>
         <NavbarBrand>
@@ -28,8 +24,8 @@ export default function header({ links, image} : {links : BuilderContent[], imag
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
             {links.map((link, index) => (
                 <NavbarItem>
-                    <Link key={index} color="foreground" href={link.data?.url}>
-                        {link.data?.label}
+                    <Link key={index} color="foreground" href={link.url}>
+                        {link.label}
                     </Link>
                 </NavbarItem>
             ))}
